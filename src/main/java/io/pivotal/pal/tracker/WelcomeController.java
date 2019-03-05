@@ -9,13 +9,21 @@ import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 @RestController
 
 public class WelcomeController {
+
+    private String str2;
     @Value("${welcome.message}")
-    private String str;
+    private String str1;
+
+    public WelcomeController(@Value("${welcome.message}") String str)
+    {
+        this.str2=str;
+        // this.str1=str;
+        // this.str1=str;
+    }
 
     @GetMapping("/")
     public String sayHello()
     {
-
-        return str.toString();
-           }
+        return str2;
+    }
 }
